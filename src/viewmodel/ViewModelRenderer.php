@@ -113,7 +113,11 @@ class ViewModelRenderer {
         }
 
         throw new ViewModelRendererException(
-            \sprintf('Viewmodel method missing: $model->%s', \implode('()->', $this->stackNames) . '()')
+            \sprintf(
+                'Viewmodel method missing: %s->%s',
+                get_class($model),
+                \implode('()->', $this->stackNames) . '()'
+            )
         );
     }
 
